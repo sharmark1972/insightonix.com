@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1a365d;
+  --color-primary-light: #2a4a7f;
+  --color-primary-dark: #0f2440;
+  --color-accent: #c53030;
+  --color-gold: #d69e2e;
+
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-serif {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+@layer components {
+  .journal-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-serif font-bold text-slate-900 relative pb-3 mb-8;
+  }
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-16 h-1 bg-blue-900 rounded-full;
+  }
+
+  .section-title-center {
+    @apply text-2xl md:text-3xl font-serif font-bold text-slate-900 relative pb-3 mb-8 text-center;
+  }
+  .section-title-center::after {
+    content: '';
+    @apply absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-blue-900 rounded-full;
+  }
+
+  .badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium; }
+  .badge-primary { @apply bg-blue-100 text-black; }
+  .badge-success { @apply bg-emerald-100 text-emerald-800; }
+  .badge-warning { @apply bg-amber-100 text-amber-800; }
+
+  .card {
+    @apply bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors duration-200 text-sm;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 border-2 border-blue-900 text-blue-900 font-medium rounded-lg hover:bg-blue-900 hover:text-white transition-colors duration-200 text-sm;
+  }
+
+  .doi-link {
+    @apply font-mono text-xs text-blue-700 hover:text-blue-900 hover:underline;
+  }
+
+  .article-item {
+    @apply py-5 px-6 border-b border-slate-100 last:border-0 transition-colors duration-150;
+  }
+  .article-item:hover { @apply bg-slate-50/80; }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, #1a365d 0%, #2a4a7f 50%, #1a365d 100%);
+  }
+  .hero-gradient h1,
+  .hero-gradient p,
+  .hero-gradient span:not(.bg-white *) {
+    color: #000000 !important;
+    opacity: 1 !important;
+  }
+  .hero-gradient .bg-white {
+    color: #1a365d !important;
+  }
+  .hero-pattern {
+    background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 30%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  }
+
+  .stat-number { @apply text-3xl md:text-4xl font-bold text-blue-900 font-serif; }
+  .stat-label { @apply text-xs text-slate-500 mt-1 font-semibold uppercase tracking-widest; }
+
+  .nav-link {
+    @apply relative text-slate-600 hover:text-blue-900 font-medium text-sm transition-colors duration-200 py-1;
+  }
+  .nav-link.active { @apply text-blue-900; }
+  .nav-link.active::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 right-0 h-0.5 bg-blue-900 rounded-full;
+  }
+
+  .spinner {
+    @apply inline-block w-8 h-8 border-4 border-slate-200 border-t-blue-900 rounded-full animate-spin;
+  }
+
+  .metric-pill {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs font-medium text-slate-600;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { font-size: 12pt; line-height: 1.5; color: #000; }
+}

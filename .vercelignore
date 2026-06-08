@@ -1,0 +1,36 @@
+# Vercel Deployment Ignore File
+# These files won't be treated as separate serverless functions
+
+# Exclude API route files (they're handled by api/index.ts through Express)
+api/routes/**
+api/middleware/**
+api/services/**
+api/prisma.ts
+
+# Build artifacts (already in dist/)
+dist/
+node_modules/
+
+# Development files
+scripts/
+.env
+.env.local
+
+# Source files (only need compiled output)
+src/
+prisma/
+public/
+
+# Tests
+coverage/
+.nyc_output/
+
+# Logs and cache
+logs/
+*.log
+.vite/
+
+# Documentation
+README.md
+.gitignore
+.eslintignore
